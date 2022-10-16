@@ -16,7 +16,7 @@ function options()
 	case $number in
 		One|one|1 )
 			echo "start to enter the student detail"
-       			/home/local/ZOHOCORP/narmatha-15442/students/newstudents2.sh
+       			./newstudents2.sh
        			echo "entries are stored"
 
        			options
@@ -24,7 +24,7 @@ function options()
 			;;
 
 		Two|two|2 )
-			dupe_script=$(ps -ef | grep "/home/local/ZOHOCORP/narmatha-15442/mark_generation/randmarkgen.sh" | grep -v grep | wc -l | xargs)
+			dupe_script=$(ps -ef | grep "/home/local/ZOHOCORP/narmatha-15442/mark_generation/randmarkgen.sh" | grep -v grep  wc -l | xargs)
 			if [ ${dupe_script} -eq 1 ]
 			then
         			echo  "already running"

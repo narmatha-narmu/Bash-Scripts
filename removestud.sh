@@ -1,21 +1,21 @@
 #! /bin/bash
 
-
+FINAL_RESULT="Result/result"
 while true
 do
 	read -p "Do you want to remove an entry  (y/n)?" -r yn
 	case "${yn}" in
 		[Yy]* )
 			read -p " name " name
-			var1=$(grep -wn $name result)
+			var1=$(grep -wn $name $FINAL_RESULT)
 			echo "$var1"
 			if [ "$(echo "$var1" | wc -l)" -eq 1 ]; then
 				read -p "sure you want to remove this entry  (y/n)?" -r yn
                                 case "${yn}" in
                                         [Yy]* )
 						read -p "linenumber " linenumber
-						sed -i "${linenumber}d" result
-						#sed -i "${var1}d" result
+						sed -i "${linenumber}d" $FINAL_RESULT
+						#sed -i "${var1}d" $FINAL_RESULT
                                                 echo "entry removed"
                                                 break;;
                                         [Nn]* ) exit;;
@@ -28,7 +28,7 @@ do
 				read -p "sure you want to remove this entry  (y/n)?" -r yn
 				case "${yn}" in
 					[Yy]* )
-						sed -i "${linenumber}d" result
+						sed -i "${linenumber}d" $FINAL_RESULT
 						echo "entry removed"
 						break;;
 					[Nn]* ) exit;;

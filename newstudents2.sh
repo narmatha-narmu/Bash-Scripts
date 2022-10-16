@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #LAST_STUDENT_REGNO=/home/local/ZOHOCORP/narmatha-15442/students/lastStudRegNo
-FINAL_RESULT=/home/local/ZOHOCORP/narmatha-15442/students/result
+FINAL_RESULT="Result/result"
 
 echo " no. of user inputs: "
 read n
@@ -20,7 +20,7 @@ done
 
 ###############################################
 
-regno=$(tail -n 1 result |cut -d '|' -f1)
+regno=$(tail -n 1 $FINAL_RESULT |cut -d '|' -f1)
 newRegNo=$(($regno+1))
 echo regno:"$newRegNo" 
 
@@ -78,41 +78,41 @@ done
 
 
 
-sDet=$(grep $name result)
+sDet=$(grep $name $FINAL_RESULT)
 returnStat=$?
 
 if [ $returnStat -eq 0 ]
 then 
-	sDet1=$(echo "$sDet"| grep "$dob" result)
+	sDet1=$(echo "$sDet"| grep "$dob" $FINAL_RESULT)
 else 
 	echo " $newRegNo |$name |$dob |$class |$sec |$address |$contact" >> $FINAL_RESULT
     continue
 fi
 
 
-sDet1=$(echo "$sDet"| grep "$dob" result)
+sDet1=$(echo "$sDet"| grep "$dob" $FINAL_RESULT)
 returnStat1=$?
 
 if [ $returnStat1 -eq 0 ]
 then 
-	sDet2=$(echo "$sDet1"| grep "$address" result)
+	sDet2=$(echo "$sDet1"| grep "$address" $FINAL_RESULT)
 else 
 	echo " $newRegNo |$name |$dob |$class |$sec |$address |$contact" >> $FINAL_RESULT
 	continue
 fi
 
-sDet2=$(echo "$sDet1"| grep "$address" result)
+sDet2=$(echo "$sDet1"| grep "$address" $FINAL_RESULT)
 returnStat2=$?
 
 if [ $returnStat2 -eq 0 ]
 then
-	sDet3=$(echo "$sDet2"| grep "$contact" result)
+	sDet3=$(echo "$sDet2"| grep "$contact" $FINAL_RESULT)
 else
 	echo " $newRegNo |$name |$dob |$class |$sec |$address |$contact" >> $FINAL_RESULT
 	continue
 fi
 
-sDet3=$(echo "$sDet2"| grep "$contact" result) 
+sDet3=$(echo "$sDet2"| grep "$contact" $FINAL_RESULT) 
 returnStat3=$?
 
 if [ $returnStat3 -eq 0 ]
