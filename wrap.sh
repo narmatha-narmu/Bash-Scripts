@@ -1,5 +1,8 @@
 #! /bin/bash
 
+acc_Rand="mark_generation/randmarkgen.sh"
+acc_backup="mark_generation/backup.sh"
+
 function options()
 {
 
@@ -24,13 +27,13 @@ function options()
 			;;
 
 		Two|two|2 )
-			dupe_script=$(ps -ef | grep "/home/local/ZOHOCORP/narmatha-15442/mark_generation/randmarkgen.sh" | grep -v grep  wc -l | xargs)
+			dupe_script=$(ps -ef | grep $acc_Rand | grep -v grep  wc -l | xargs)
 			if [ ${dupe_script} -eq 1 ]
 			then
         			echo  "already running"
 			else
         			echo "background process started"
-        			setsid -f /home/local/ZOHOCORP/narmatha-15442/mark_generation/randmarkgen.sh
+        			setsid -f $acc_Rand
         			echo "random mark gen started pid is $!"
 			fi
 
@@ -38,13 +41,13 @@ function options()
 			;;
 
 		Three|three|3 )
-			dupe_script2=$(ps -ef | grep "/home/local/ZOHOCORP/narmatha-15442/mark_generation/backup.sh" | grep -v grep | wc -l | xargs)
+			dupe_script2=$(ps -ef | grep $acc_backup | grep -v grep | wc -l | xargs)
 			if [ ${dupe_script2} -eq 1 ]
 			then
 				echo "already running"
 			else	
 				echo "starting backup"
-				setsid -f /home/local/ZOHOCORP/narmatha-15442/mark_generation/backup.sh
+				setsid -f $acc_backup
                         	echo "update initialised"
 			fi
 
@@ -53,14 +56,14 @@ function options()
 			;;
 
 		Four|four|4 )
-			/home/local/ZOHOCORP/narmatha-15442/students/removestud.sh
+			./removestud.sh
 
 			options
 			echo ""
 			;;
 
 		Five|five|5 )
-			pid=$(ps -aux | grep /home/local/ZOHOCORP/narmatha-15442/mark_generation/randmarkgen.sh | grep -v grep | tr -s ' ' | cut -d\  -f2) 
+			pid=$(ps -aux | grep $acc_Rand | grep -v grep | tr -s ' ' | cut -d\  -f2) 
 			kill -15 $pid
 			echo "process killed"
 
@@ -69,7 +72,7 @@ function options()
 			;;
 		
 		Six|six|6 )
-			pid=$(ps -aux | grep /home/local/ZOHOCORP/narmatha-15442/mark_generation/backup.sh | grep -v grep | tr -s ' ' | cut -d\  -f2)
+			pid=$(ps -aux | grep $acc_backup | grep -v grep | tr -s ' ' | cut -d\  -f2)
 			kill -15 $pid
 			echo "process killed"
 
