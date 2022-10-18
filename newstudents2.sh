@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #LAST_STUDENT_REGNO=/home/local/ZOHOCORP/narmatha-15442/students/lastStudRegNo
-FINAL_RESULT="Result/result"
+FINAL_RESULT="result"
 
 echo " no. of user inputs: "
 read n

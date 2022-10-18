@@ -1,8 +1,9 @@
 #! /bin/bash
 
 markFile="marklist"
-FINAL_RESULT="../Result/result"
+FINAL_RESULT="result"
 Filter="crop1"
+
 function student {
 	touch file2
 	> $markFile

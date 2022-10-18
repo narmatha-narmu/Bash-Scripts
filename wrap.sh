@@ -27,7 +27,7 @@ function options()
 			;;
 
 		Two|two|2 )
-			dupe_script=$(ps -ef | grep $acc_Rand | grep -v grep  wc -l | xargs)
+			dupe_script=$(ps -ef | grep $acc_Rand | grep -v grep | wc -l | xargs)
 			if [ ${dupe_script} -eq 1 ]
 			then
         			echo  "already running"

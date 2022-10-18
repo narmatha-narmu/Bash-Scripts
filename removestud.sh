@@ -1,6 +1,6 @@
 #! /bin/bash
 
-FINAL_RESULT="Result/result"
+FINAL_RESULT="result"
 while true
 do
 	read -p "Do you want to remove an entry  (y/n)?" -r yn
