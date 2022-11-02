@@ -1,8 +1,9 @@
 #! /bin/bash
 
-markFile="marklist"
-FINAL_RESULT="result"
-Filter="crop1"
+#markFile="marklist"
+#FINAL_RESULT="result"
+#Filter="crop1"
+source /home/local/ZOHOCORP/narmatha-15442/testMain/Bash-Scripts/mark_generation/test.properties
 
 function student {
 	touch file2
