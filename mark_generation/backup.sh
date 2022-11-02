@@ -1,12 +1,15 @@
 #! /bin/bash
 
-top=toppers
+#top=toppers
+source /home/local/ZOHOCORP/narmatha-15442/bashWorkItems/Bash-Scripts/mark_generation/filenames.properties
+source /home/local/ZOHOCORP/narmatha-15442/bashWorkItems/Bash-Scripts/mark_generation/test.properties
 function update {
 
 	touch file1
 	> $top
 	sort -nrk 6 marklist > update1 
 	sed -n '1,3p' update1 >  $top
+	scp -r $top $username@$Ip:"/home/sas/narmatha/toppers/toppers_"$(date +"%Y_%m_%d_%I_%M_%S_%p").log""
 	rm file1
 
 
@@ -21,8 +24,57 @@ do
 	done
 
 	update
-	#cat $top
+       	#cat $top
 	#echo "####################"
 	sleep 5
 done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
